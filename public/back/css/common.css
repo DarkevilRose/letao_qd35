@@ -89,6 +89,11 @@ ul {
   line-height: 40px;
   padding-left: 40px;
   color: #fff;
+  border-left: 1px solid transparent;
+}
+.lt_aside .nav a.current {
+  background-color: #1D1F21;
+  border-left: 3px solid #069;
 }
 .lt_aside .nav i {
   margin-right: 6px;
@@ -104,7 +109,7 @@ ul {
 /* --------------- 主体-头部------------- */
 .lt_main {
   height: 2000px;
-  background-color: pink;
+  /* background-color: pink; */
   padding-left: 180px;
   padding-top: 50px;
   transition: all 1s;
@@ -121,6 +126,7 @@ ul {
   background-color: #3C8DBC;
   padding-left: 180px;
   transition: all 1s;
+  z-index: 998;
 }
 .lt_topbar.hidemenu {
   padding-left: 0px;
@@ -140,3 +146,10 @@ ul {
   color: #337ab7;
 }
 
+
+/* --------------- 图形 ------------- */
+.lt_main .echarts_left, 
+.lt_main .echarts_right {
+    width: 48%;
+    height: 400px;
+}
