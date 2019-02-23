@@ -1,3 +1,4 @@
+ 
 //测试进度条功能
 //开始
 // NProgress.start();
@@ -22,16 +23,62 @@
 
 
 // 在第一个ajax开始发送时, 开启进度条
-$(document).ajaxStart(function(){
+$(document).ajaxStart(function () {
     //开启进度条
     NProgress.start();
 })
 
 //在全部的ajax完成时,关闭进度条
-$(document).ajaxStop(function(){
+$(document).ajaxStop(function () {
     //模拟网络延迟
-    setTimeout(function(){
+    setTimeout(function () {
         //关闭进度条
         NProgress.done();
-    },500)
+    }, 500)
 });
+
+
+// 公用的功能:
+// 1. 左侧二级菜单的切换
+// 2. 左侧整体菜单的切换
+// 3. 公共的退出功能
+
+//等待dom 结构加载完成后, 才会执行
+$(function () {
+    // 1.左侧二级菜单的切换
+    $('.lt_aside .category').click(function () {
+        //找下一个兄弟, 切换显示
+        $(this).next().stop().slideToggle();
+    });
+
+    // 2.左侧整体菜单切换
+    $('.lt_topbar .icon_menu').click(function () {
+        $('.lt_aside').toggleClass('hidemenu');
+        $('.lt_topbar').toggleClass('hidemenu');
+        $('.lt_main').toggleClass('hidemenu');
+    });
+
+
+    // 3.退出功能
+    //  点击菜单的退出按钮,显示一个模态框,询问用户
+    $('.lt_topbar .icon_logout').click(function () {
+        //让模态框显示,modal('show')
+        $('#logoutModal').modal('show');
+    });
+
+    //点击模态框的退出按钮,表示确认退出
+    //发送 ajax 请求, 让服务器端销毁用户的登录状态
+     $('#logoutBtn').click(function(){
+         $.ajax({
+             type:'get',
+             url:'/employee/employeeLogout',
+             dataType:'json',
+             success:function(info){
+                console.log(info);
+                location.href = 'login.html';
+                
+             }
+         })
+     })
+})
+
