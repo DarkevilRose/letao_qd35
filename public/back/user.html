@@ -79,18 +79,30 @@
                         </tr>                       -->
                     </tbody>
                 </table>
+
+                <!-- 准备分页器 -->
+                <!-- 分页右浮 给ul加个父盒子 div -->
+                <div class="pull-right">
+                    <ul id="paginator"></ul>
+                </div>
             </div>
         </div>
     </div>
 
     <script type="text/html" id="tpl">
         {{each rows v i}}
-            <tr>
-                <td>{{i + 1}}</td>
+            <tr>           
+                <!-- i+1表示当前页第几条 + 前面页有多少条 (page-1)*size -->
+                <td>{{i + 1 + (page - 1) * size}}</td>
                 <td>{{v.username}}</td>
                 <td>{{v.mobile}}</td>
+                 <!-- 1 一般都是正面的状态 0 负面的状态
+                    1 表示正常启用,  0 表示该用户已禁用
+                    isDelete: 1/0
+                 -->
                 <td>{{v.isDelete === 1 ? '正常' : '禁用'}}</td>
-                <td> 
+                <td data-id = "{{ v.id }}"> 
+                 <!-- 如果是 1 正常, 显示禁用按钮 -->
                     {{if v.isDelete === 1}}
                         <button class="btn btn-danger">禁用</button>
                         {{else}}
@@ -122,12 +134,32 @@
         </div>
     </div>
 
+     <!-- 准备一个 userModal模态框 -->
+    <div class="modal fade" tabindex="-1" id="userModal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">温馨提示</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="red"><i class="glyphicon glyphicon-info-sign"></i>你确定要执行此操作吗？</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="confirmBtn">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <script src="./lib/jquery/jquery.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/common.js"></script>
     <script src="./js/user.js"></script>
     <script src="./js/login.js"></script>
