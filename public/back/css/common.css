@@ -153,3 +153,17 @@ ul {
     width: 48%;
     height: 400px;
 }
+
+/* --------------- 用户管理 ------------- */
+
+.lt_content tr th{
+  text-align: center;
+}
+.table.table-bordered tr,
+.table.table-bordered th {
+  vertical-align: middle;
+}
+
+
+
+
