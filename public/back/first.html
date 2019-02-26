@@ -56,7 +56,7 @@
                 <li class="active">一级分类</li>
             </ol>
             <div class="lt_content">
-                <button class="btn btn-default">添加分类</button>
+                <button class="btn btn-default" id="addBtn">添加分类</button>
                 <table class="table table-hover table-bordered mt_20">
                     <thead>
                         <tr>
@@ -79,6 +79,31 @@
             </div>
         </div>
     </div>
+
+     <!-- 一级分类添加模态框 -->
+     <div class="modal fade" tabindex="-1" id="addModal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <form id="form">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">添加分类</h4>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-group">
+                        <input type="text" name="categoryName" class="form-control" placeholder="请输入一级分类">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary" >添加</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
 
     <!-- 模态框 -->
     <div class="modal fade" tabindex="-1" id="logoutModal">
@@ -118,7 +143,6 @@
     <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/login.js"></script>
     <script src="./js/isLogin.js"></script>
     <script src="./js/first.js"></script>
 </body>
