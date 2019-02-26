@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,31 +51,28 @@
             <a href="#" class="icon_logout pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
         </div>
         <div class="container-fluid">
+
+             <!-- 路径导航 -->
             <ol class="breadcrumb mt_20">
                 <li><a href="index.html">管理系统</a></li>
                 <li class="active">分类管理</li>
                 <li class="active">二级分类</li>
             </ol>
+
             <div class="lt_content">
                 <button class="btn btn-default" id="addBtn">添加分类</button>
                 <table class="table table-hover table-bordered mt_20">
                     <thead>
-                        <tr>                               			
-                           <th>序号</th>
-                           <th>一级分类名称</th>
-                           <th>二级分类名称</th>
-                           <th>二级分类LOGO</th>
+                        <tr>
+                            <th width='20%'>序号</th>
+                            <th width='80%'>一级分类名</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr>                                			
+                        <tr>
                             <td>1</td>
-                            <td>女士馆</td>
-                            <td>阿萨德2</td>
-                            <td>
-                                <img style="height:50px" src="./images/none.png" alt="">
-                            </td>
-                        </tr> -->
+                            <td>白白</td>
+                        </tr>
                     </tbody>
                 </table>
 
@@ -86,7 +84,7 @@
         </div>
     </div>
 
-     <!-- 二级分类添加模态框 -->
+     <!-- 一级分类添加模态框 -->
      <div class="modal fade" tabindex="-1" id="addModal">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -95,36 +93,10 @@
                         <button type="button" class="close" data-dismiss="modal"><span
                                 aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">添加分类</h4>
-                    </div>                 
+                    </div>
                     <div class="modal-body">
-
                             <div class="form-group">
-                                    <div class="dropdown">
-                                        <!-- 按钮 -->
-                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                                         请选择一级分类
-                                          <!-- <span class="caret"></span>  小箭头 -->
-                                        </button>
-                                        <!-- 切换的下拉菜单 -->
-                                        <ul class="dropdown-menu">
-                                          <li><a href="#">白白馆</a></li>
-                                          <li><a href="#">黑黑馆</a></li>
-                                          <li><a href="#">大白馆</a></li>
-                                          <li class="divider"></li>
-                                          <li><a href="#">小白馆</a></li>
-                                        </ul>
-                                    </div>
-                                </div>           
-
-                            <div class="form-group">
-                        <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
-                            </div>
-
-                            <div class="form-group">
-                                <button class="btn btn-default">上传图片</button>
-                            </div>
-                            <div class="form-group">
-                                <img style="height:100px" src="./images/none.png" alt="">
+                        <input type="text" name="categoryName" class="form-control" placeholder="请输入一级分类">
                             </div>
                     </div>
                     <div class="modal-footer">
@@ -157,18 +129,7 @@
         </div>
     </div>
 
-  <script type="text/html" id="secondTpl">
-    {{each rows v i}}
-        <tr>                                			
-            <td>{{ i + 1 + (page - 1) * 5}}</td>
-            <td>{{v.categoryName}}</td>
-            <td>{{v.brandName}}</td>
-            <td>
-                <img style="height:50px" src="{{v.brandLogo}}" alt="">
-            </td>
-        </tr>
-    {{/each}}
-  </script>
+   
 
 
     <script src="./lib/jquery/jquery.js"></script>
