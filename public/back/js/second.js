@@ -46,6 +46,32 @@ $(function(){
     // 显示模态框, 就应该发送请求
         $('#addModal').modal('show');
 
+        // 发送请求,获取一级分类的全部数据,将来用于渲染
+        // 根据已经有的接口,模拟获取全部数据的接口,
+        $.ajax({
+            type:'get',
+            url:'/category/queryTopCategoryPaging',
+            data:{
+                page: 1,
+                pageSize: 100
+            },
+            dataType:'json',
+            success:function(info){
+                console.log(info);
+                var htmlStr = template('dropdownTpl',info);
+                $('.dropdown-menu').html(htmlStr);
+            }
+        })
 
+    });
+
+
+    //3. 给下拉菜单添加可选功能
+    $('.dropdown-menu').on('click','a',function(){
+        // 获取a的文本
+        var txt = $(this).text();
+        // console.log(txt);
+        // 设置给 button 按钮
+        $('#dropdownText').text(txt);
     })
 })
