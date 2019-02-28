@@ -1,6 +1,6 @@
 $(function () {
+    
     //一进页面发送 ajax 请求
-
     var currentPage = 1; //当前页
     var pageSize = 5;  //每页条数
 
